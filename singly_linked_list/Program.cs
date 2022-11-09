@@ -20,6 +20,14 @@ namespace single_linked_list
         {
             START =  null;
         }
+
+        public void addNode()/* method untuk menambahkan sebuah Node kedalam list*/
+        {
+            int nim;
+            string nm;
+            Console.Write("\nMasukkan nomer Mahasiswa: ");
+            nim = Convert.ToInt32(Console.ReadLine());
+        }
     }
     class program
     {
