@@ -4,9 +4,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace singly_linked_list
+namespace single_linked_list
 {
-    internal class Program
+    class Node
+    {
+        public int noMhs;
+        public string nama;
+        public Node next;
+    }
+
+    class List
+    {
+        Node START;
+        public List()
+        {
+            START =  null;
+        }
+    }
+    class program
     {
         static void Main(string[] args)
         {
