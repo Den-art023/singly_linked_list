@@ -61,7 +61,10 @@ namespace single_linked_list
                 previous = current;
                 current = current.next;
             }
-            
+            /*Node baru akan ditempatkan diantara previous dan current*/
+
+            nodeBaru.next = current;
+            previous.next = nodeBaru;
         }
     }
     class program
