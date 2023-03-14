@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace single_linked_list
 {
-    class Node
+    class Node/*Main class*/
     {
-        public int noMhs;
-        public string nama;
+        public int noMhs;/*Menggunakan integer karena untuk nomor mahasiswa*/
+        public string nama;/*Memakai string untuk mengisi data nama*/
         public Node next;
     }
 
@@ -25,9 +25,9 @@ namespace single_linked_list
         {
             int nim;
             string nm;
-            Console.Write("\nMasukkan nomer Mahasiswa: ");
+            Console.Write("\nMasukkan nomer Mahasiswa: ");/*Code untuk meng-input nomer mahasiswa*/
             nim = Convert.ToInt32(Console.ReadLine());
-            Console.Write("\nMasukkan nama Mahasiswa: ");
+            Console.Write("\nMasukkan nama Mahasiswa: ");/*Code untuk meng-input nama mahasiswa*/
             nm = Console.ReadLine();
             Node nodeBaru =  new Node();
             nodeBaru.noMhs = nim;
@@ -46,7 +46,6 @@ namespace single_linked_list
             }
 
             /*Menemukan lokasi node baru didalam list*/
-
             Node previous, current;
             previous = START;
             current = START;
@@ -79,7 +78,8 @@ namespace single_linked_list
             return true;
         }
 
-        public bool Search(int nim, ref Node previous, ref Node current)/*Method untuk mengecek apakah node yang dimaksud ada didalam list atau tidak*/
+        public bool Search(int nim, ref Node previous, ref Node current)/*Method untuk mengecek apakah 
+        node yang dimaksud ada didalam list atau tidak*/
         {
             previous = START;
             current = START;
@@ -99,10 +99,10 @@ namespace single_linked_list
         public void traverse() /*Method untuk mengunjungi dan membaca isi list*/
         {
             if (listEmpty())
-                Console.WriteLine("\nList kosong. \n");
+                Console.WriteLine("\nList kosong. \n");/*Jika program mengunjungi list kosong, maka akan muncul kalimat "List kosong."*/
             else
             {
-                Console.WriteLine("\nData didalam list adalah: \n");
+                Console.WriteLine("\nData didalam list adalah: \n");/*Jika program mendapati list yang ada isinya, maka menampilkan isi list*/
                 Node currentNode;
                 for (currentNode = START; currentNode != null; currentNode = currentNode.next)
                     Console.Write(currentNode.noMhs + " " + currentNode.nama + "\n");
@@ -110,14 +110,14 @@ namespace single_linked_list
             }
         }
 
-        public bool listEmpty()
+        public bool listEmpty()/*Method yang bertujuan jika node itu kosong*/
         {
             if(START == null)
                 return true;
             else
                 return false;
         }
-        class program
+        class program /*Kelas untuk menjalankan program*/
         {
             static void Main(string[] args)
             {
@@ -126,22 +126,23 @@ namespace single_linked_list
                 {
                     try
                     {
+                        /*Menu yang program tampilkan untuk dipilih*/
                         Console.WriteLine("\nMenu\n");
                         Console.WriteLine("1. Menambah data kedalam list");
-                        Console.WriteLine("2. MEnghapus data dari dalam list");
+                        Console.WriteLine("2. Menghapus data dari dalam list");
                         Console.WriteLine("3. Melihat semua data didalam list");
-                        Console.WriteLine("4. MEncari sebuah data didalam list");
+                        Console.WriteLine("4. Mencari sebuah data didalam list");
                         Console.WriteLine("5. Exit");
                         Console.WriteLine("\nMasukkan pilihan anda (1-5): ");
                         char ch = Convert.ToChar(Console.ReadLine());
                         switch (ch)
                         {
-                            case '1':
+                            case '1':/*Jika memilih opsi 1 maka akan dialihkan untuk menambahkan data dalam list*/
                                 {
                                     obj.addNode();
                                 }
                                 break;
-                            case '2':
+                            case '2':/*Jika memilih 2, maka akan dialihkan untuk menghapus data yang ada dalam list*/
                                 {
                                     if (obj.listEmpty())
                                     {
@@ -156,12 +157,12 @@ namespace single_linked_list
                                         Console.WriteLine("Data dengan nomor Mahasiswa " + nim + " dihapus");
                                 }
                                 break ;
-                            case '3':
+                            case '3':/*Jika meilih 3, maka program akan menampilkan data yang ada di dalam list*/
                                 {
                                     obj.traverse();
                                 }
                                 break;
-                            case '4':
+                            case '4':/*Case untuk mencari data di dalam list*/
                                 {
                                     if(obj.listEmpty() == true)
                                     {
@@ -186,12 +187,12 @@ namespace single_linked_list
                                 return;
                             default:
                                 {
-                                    Console.WriteLine("\nPilihan tidak valid");
+                                    Console.WriteLine("\nPilihan tidak valid");/*Jika user salah meng-input data, maka program akan menampikan ini*/
                                     break;
                                 }
                         }
                     }
-                    catch(Exception e)
+                    catch(Exception e)/*Agar error tidak diketahui jika tidak dilihat.*/
                     {
                         Console.WriteLine("\nCheck nilai yang anda masukkan.");
                     }
